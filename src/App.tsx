@@ -1,7 +1,9 @@
+import Home from "./routes/Client/Home";
+
 export default function App() {
   return (
     <>
-      <h1>Rotas com React-Router-DOM</h1>
+      <Home />
     </>
   );
 }
