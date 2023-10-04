@@ -7,6 +7,7 @@
 
     --color-font-primary: #fff;
     --color-font-secondary: #000;
+    --color-font-tertiary: #2D28FF;
 }
 
 * {
@@ -34,4 +35,12 @@ a:hover {
 
 .mb20 {
     margin-bottom: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.active-link {
+    font-weight: bold; 
 }
