@@ -1,5 +1,7 @@
+import './styles.css';
+
 export default function About() {
     return (
-        <h1>About Route</h1>
+        <h1>Sobre nós</h1>
     );
 }

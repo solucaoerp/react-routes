@@ -1,5 +1,12 @@
+import { Outlet } from "react-router-dom";
+import Category from "./Category";
+
+
 export default function Product() {
     return (
-        <h1>Product Route</h1>
+        <div>
+            <Category />
+            <Outlet />
+        </div>
     );
 }

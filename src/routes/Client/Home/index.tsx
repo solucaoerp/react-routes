@@ -1,5 +1,13 @@
+import { Outlet } from "react-router-dom";
+import Header from "../../../components/Header";
+
 export default function Home() {
     return (
-        <h1>Home Route</h1>
+        <>
+            <Header />
+            <div className="container">
+                <Outlet />
+            </div>
+        </>
     );
 }
