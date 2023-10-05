@@ -35,7 +35,35 @@ yarn add react-router-dom@6.4.1 @types/react-router-dom@5.3.3
 
 ### Rotas Aninhadas e o Uso de `<Outlet />`
 
-O projeto utiliza o conceito de rotas aninhadas para organizar a estrutura de navegação. Isso permite uma melhor organização e flexibilidade ao adicionar ou remover rotas. O componente `<Outlet />` da biblioteca, é usado para renderizar as subrotas dentro de um `componente pai`. Por exemplo, no componente `Products`, temos:
+O React Router v6 introduziu uma abordagem mais declarativa para definir rotas aninhadas. No contexto deste projeto, utilizamos essa abordagem para criar uma estrutura de rotas mais organizada e intuitiva.
+
+### Como funciona?
+
+No componente `App`:
+
+```jsx
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Welcome />} />
+          <Route path="products" element={<Products />}>
+            <Route path="computers" element={<Computers />} />
+            <Route path="electronics" element={<Electronics />} />
+            <Route path="books" element={<Books />} />
+          </Route>
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+- Neste exemplo, temos uma rota principal `/` que renderiza o componente `Home`. Dentro deste componente, podemos ter rotas aninhadas, como `/products`, que por sua vez tem suas próprias subrotas (`/computers`, `/electronics` e `/books`).
+
+- O componente `<Outlet />` atua como um espaço reservado onde os componentes das subrotas serão renderizados. No caso do componente `Products`, ele renderiza o componente `Category` e, em seguida, utiliza `<Outlet />` para determinar qual subcategoria (Computers, Electronics ou Books) deve ser exibida com base na URL atual.
 
 ```jsx
 export default function Products() {
@@ -49,6 +77,8 @@ export default function Products() {
 ```
 
 Aqui, `<Category />` renderiza os links de categoria e `<Outlet />` é o local onde as subrotas de produtos (como "computers", "electronics", etc.) serão renderizadas.
+
+- Essa abordagem permite uma maior modularidade e reutilização de componentes, já que podemos ter uma estrutura base (como um layout de página ou um menu de navegação) e simplesmente alterar o conteúdo específico com base na rota atual.
 
 ### Componente de Cabeçalho (Header)
 
