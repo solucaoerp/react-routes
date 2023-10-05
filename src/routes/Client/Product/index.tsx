@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Category from "./Category";
 
-
-export default function Product() {
+export default function Products() {
     return (
         <div>
             <Category />
